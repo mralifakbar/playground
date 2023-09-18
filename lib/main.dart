@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playground/screen/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,15 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter Demo Home Page'),
-        ),
-        // body: const Center(
-        //   child: Text('Hello World'),
-        // ),
-        body: Text("Hello World"),
-      ),
+      home: OnboardingScreen(),
     );
   }
 }
