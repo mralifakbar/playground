@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:playground/screen/signup_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -36,7 +38,7 @@ class OnboardingScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Text(
                       "Bergabunglah dengan komunitas kami yang penuh warna ini. Rasakan sensasinya!",
-                      style: TextStyle(
+                      style: GoogleFonts.merriweather(
                         fontSize: 16,
                       ),
                       textAlign: TextAlign.center,
@@ -45,15 +47,19 @@ class OnboardingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return SignUpScreen();
+                          }),
+                        );
+                      },
                       child: Text("Daftar"),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16),
                         backgroundColor: Colors.blue,
                         foregroundColor: Colors.white,
-                        textStyle: TextStyle(
-                          fontSize: 16,
-                        ),
                       ),
                     ),
                   ),
