@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playground/screens/form_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -43,7 +44,14 @@ class OnboardingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FormScreen(),
+                          ),
+                        );
+                      },
                       child: Text("Daftar"),
                     ),
                   ),
