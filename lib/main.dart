@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:playground/screens/form_screen.dart';
 import 'package:playground/screens/home_screen.dart';
 import 'package:playground/screens/onboarding_screen.dart';
+import 'package:playground/screens/root_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: HomeScreen(),
+      home: RootScreen(),
     );
   }
 }
