@@ -85,27 +85,48 @@ class _HomeScreenState extends State<HomeScreen> {
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
-                        mainAxisSpacing: 16,
+                        childAspectRatio: 0.7,
                         crossAxisSpacing: 16),
                     itemBuilder: (context, index) {
+                      // return Container(
+                      //   decoration: BoxDecoration(
+                      //     color: Colors.grey[200],
+                      //     borderRadius: BorderRadius.circular(16),
+                      //   ),
+                      //   child: Column(
+                      //     mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: [
+                      //       Icon(
+                      //         Icons.shopping_bag,
+                      //         size: 32,
+                      //       ),
+                      //       Flexible(
+                      //         child: Text(
+                      //           fitur[index],
+                      //           overflow: TextOverflow.ellipsis,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // );
                       return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(16),
-                        ),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.shopping_bag,
-                              size: 32,
-                            ),
-                            Flexible(
-                              child: Text(
-                                fitur[index],
-                                overflow: TextOverflow.ellipsis,
+                            AspectRatio(
+                              aspectRatio: 1,
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Icon(Icons.shopping_bag),
                               ),
                             ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(fitur[index]),
                           ],
                         ),
                       );
@@ -118,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16),
+                      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       width: double.infinity,
                       height: 200,
                       decoration: BoxDecoration(
