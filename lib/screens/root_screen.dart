@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:playground/screens/form_screen.dart';
 import 'package:playground/screens/home_screen.dart';
+import 'package:playground/screens/profile_screen.dart';
 import 'package:playground/screens/transaction_screen.dart';
 
 class RootScreen extends StatefulWidget {
@@ -19,9 +20,7 @@ class _RootScreenState extends State<RootScreen> {
     Container(
       color: Colors.red,
     ),
-    Container(
-      color: Colors.blue,
-    ),
+    ProfileScreen(),
   ];
 
   @override
