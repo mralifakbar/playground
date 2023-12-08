@@ -1,43 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import 'package:get/get.dart';
+import 'package:playground/app/routes/app_pages.dart';
 import 'package:playground/screens/root_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class FormScreen extends StatefulWidget {
-  const FormScreen({super.key});
+import '../controllers/form_controller.dart';
 
-  @override
-  State<FormScreen> createState() => _FormScreenState();
-}
-
-class _FormScreenState extends State<FormScreen> {
-  TextEditingController nameController = TextEditingController();
-  bool isNameValid = false;
-
-  void setName(String name) async {
-    print(name);
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString("name", name);
-  }
-
-  void redirect() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.containsKey("name")) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => RootScreen(),
-        ),
-      );
-    }
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    redirect();
-  }
+class FormView extends GetView<FormController> {
+  const FormView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,29 +48,34 @@ class _FormScreenState extends State<FormScreen> {
                         height: 8,
                       ),
                       TextField(
-                        controller: nameController,
+                        controller: controller.nameController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          errorText: isNameValid ? null : "Name tidak valid",
+                          errorText: controller.isNameValid.value
+                              ? null
+                              : "Name tidak valid",
                         ),
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () async {
-                            isNameValid = nameController.text.isNotEmpty;
+                            // controller.isNameValid.value =
+                            //     controller.nameController.text.isNotEmpty;
 
-                            if (isNameValid) {
-                              setName(nameController.text);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (builder) => RootScreen(),
-                                ),
-                              );
-                            }
+                            // if (controller.isNameValid.value) {
+                            //   controller
+                            //       .setName(controller.nameController.text);
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (builder) => RootScreen(),
+                            //     ),
+                            //   );
+                            // }
+                            Get.toNamed(Routes.COUNTER);
                           },
                           child: Text("Daftar"),
                         ),
